@@ -43,8 +43,8 @@ namespace CarnivalConsoleGame
                 "Your mom gave you 100 tickets and will pick you up in 2 hours (120 minutes) at the Ticket Booth.\n" +
                 "Have as much fun as possible before you run out of time or tickets!");
             Console.ReadKey();
-            bool alive = true; //bool that indicates if you're still "alive" aka have time and tickets remaining
-            while (alive)
+            bool hasTime = true; //bool that indicates if you still have time remaining - your mom picks you up at 0.
+            while (hasTime)
             {
                 Console.Clear();
                 DisplayStats();
@@ -83,6 +83,10 @@ namespace CarnivalConsoleGame
                     else
                     {
                     PlayGame(currentGame);
+                        if (time == 0)
+                        {
+                            hasTime = false;
+                        }
                     }
                 }
                 else if (command.StartsWith("exit"))
@@ -96,6 +100,10 @@ namespace CarnivalConsoleGame
                 Console.WriteLine("\nPress Any Key to Continue.");
                 Console.ReadKey();
             }
+            Console.Clear();
+            Console.WriteLine("You have ran out of time!  Time go to home.");
+            Console.ReadKey();
+            ExitApplication();
         }
 
         private void ExitApplication()
