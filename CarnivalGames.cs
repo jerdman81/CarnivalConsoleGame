@@ -10,20 +10,6 @@ namespace CarnivalConsoleGame
     {
        public CarnivalGames(){}
 
-       public static readonly Dictionary<string, CarnivalGames> Games = new Dictionary<string, CarnivalGames>
-        {
-            {"merry-go-round", merryGoRound },
-            {"basket toss", basketToss },
-            {"roller coaster", rollerCoaster },
-            {"ring toss", ringToss },
-            {"ferris wheel", ferrisWheel },
-            {"balloon dart", balloonDart },
-            {"tilt-a-whirl", tiltAWhirl },
-            {"baseball toss", baseballToss },
-            {"ticket booth", ticketBooth }
-        };
-
-
         public CarnivalGames(string splash, List<string> exits, string name, int time, int tickets, int funPoints)
         {
             Splash = splash;
@@ -42,7 +28,7 @@ namespace CarnivalConsoleGame
 
         // POCOS
 
-        //Ticket Booth
+        /* //Ticket Booth
         public static CarnivalGames ticketBooth = new CarnivalGames(
             "You are at the Ticket Booth.  Here you can buy tickets with any money you have and then take 4 different paths into the carnival.\n" +
             "This stop takes 5 minutes.\n" +
@@ -56,13 +42,14 @@ namespace CarnivalConsoleGame
            );
 
         //MerryGoRound
-        public static CarnivalGames merryGoRound = new CarnivalGames(
+        public static readonly CarnivalGames merryGoRound = new CarnivalGames(
             "You have reached the Merry-Go-Round.  A classic carnival ride!\n" +
             "This ride costs 3 tickets.\n" +
             "This ride takes 5 minutes.\n" +
             "This ride is worth 2 Fun Points!\n\n" +
-            "From here you can go to BASEBALL TOSS or BASKET TOSS.", //splash
-            new List<string> { "baseball toss", "basket toss"}, //exits
+            "From here you can go to BASEBALL TOSS or BASKET TOSS.\n" +
+            "Do you want to RIDE MERRY-GO-ROUND or GO somewhere else?", //splash
+            new List<string> { "baseball toss", "basket toss" }, //exits
            "Merry-Go-Round",  //name
            -5,  //time
            -3,  //tickets
@@ -70,7 +57,7 @@ namespace CarnivalConsoleGame
            );
 
         //BaseballToss
-        public static CarnivalGames baseballToss = new CarnivalGames(
+        public static readonly CarnivalGames baseballToss = new CarnivalGames(
            "Baseball Toss!  In this game, your goal is to knock over all the milk bottles in 3 throws.\n" +
             "This game costs 3 tickets.\n" +
             "This game takes 5 minutes.\n" +
@@ -84,7 +71,7 @@ namespace CarnivalConsoleGame
            2  //fun points
            );
         //Coaster
-        public static CarnivalGames rollerCoaster = new CarnivalGames(
+        public static readonly CarnivalGames rollerCoaster = new CarnivalGames(
            "Dragon Coaster! This thing looks like it may fall apart any minute.  But the line is long and you have to ride or face ridicule from your friends!\n" +
             "This ride costs 3 tickets.\n" +
             "This ride takes 10 minutes.\n" +
@@ -97,7 +84,7 @@ namespace CarnivalConsoleGame
            20  //fun points
            );
         //BasketToss
-        public static CarnivalGames basketToss = new CarnivalGames(
+        public static readonly CarnivalGames basketToss = new CarnivalGames(
            "Basket Toss!  In this game, your goal is to get the softball to land in the basket.  You only get 3 chances.  Do you know the trick?\n" +
             "This game costs 3 tickets.\n" +
             "This game takes 5 minutes.\n" +
@@ -110,7 +97,7 @@ namespace CarnivalConsoleGame
            2  //fun points
            );
         //FerrisWheel
-        public static CarnivalGames ferrisWheel = new CarnivalGames(
+        public static readonly CarnivalGames ferrisWheel = new CarnivalGames(
            "Ferris Wheel! Classic ride that is not only rickety, but very high and exhilirating!\n" +
             "This ride costs 4 tickets.\n" +
             "This ride takes 10 minutes\n" +
@@ -123,44 +110,45 @@ namespace CarnivalConsoleGame
            2  //fun points
            );
         //RingToss
-        public static CarnivalGames ringToss = new CarnivalGames(
+        public static readonly CarnivalGames ringToss = new CarnivalGames(
             "Ring-Toss! You get 3 tries to make a ringer around the bottle!\n" +
             "This game costs 3 tickets.\n" +
             "This game takes 5 minutes.\n" +
             "This game is worth 3 fun points!\n" +
             "From here you can go to FERRIS WHEEL, ROLLER COASTER, OR TICKET BOOTH", //splash
-            new List<string> { "ferris wheel", "roller coaster","ticket booth" }, //exits
+            new List<string> { "ferris wheel", "roller coaster", "ticket booth" }, //exits
            "Ring-Toss",  //name
            -5,  //time
            -3,  //tickets
            3  //fun points
            );
         //BalloonDart
-        public static CarnivalGames balloonDart = new CarnivalGames(
+        public static readonly CarnivalGames balloonDart = new CarnivalGames(
             "Balloon-Dart! Careful not to poke yourself as you try and pop the most balloons in the alloted 60 seconds! Must pop at least 10 balloons to win!\n" +
             "This game costs 3 tickets.\n" +
             "This game takes 1 minute. \n" +
             "This game is worth 5 fun points!\n" +
             "From here you can go to TILT-A-WHIRL, FERRIS WHEEL OR TICKET BOOTH", //splash
-            new List<string> { "tilt-a-whirl", "ferris wheel","ticket booth" }, //exits
+            new List<string> { "tilt-a-whirl", "ferris wheel", "ticket booth" }, //exits
            "Ballon-Dart",  //name
            -1,  //time
            -3,  //tickets
            5  //fun points
            );
         //TiltAWhirl
-        public static CarnivalGames tiltAWhirl = new CarnivalGames(
+        public static readonly CarnivalGames tiltAWhirl = new CarnivalGames(
            "Tilt-A-Whirl! DO NOT EAT before getting on this ride as you may find your self HURLING about.\n" +
            "This ride costs 5 tickets\n" +
            "This ride takes 5 minutes.\n" +
            "This ride is worth 5 fun points!\n" +
            "From here you can go to BASEBALL TOSS, BALLOON DART OR TICKET BOOTH", //splash
-            new List<string> { "baseball toss", "balloon dart", "ticket booth"  }, //exits
+            new List<string> { "baseball toss", "balloon dart", "ticket booth" }, //exits
            "Tilt-A-Whirl",  //name
            -5,  //time
            -5,  //tickets
            5  //fun points
            );
+        */
     }
 
 }
