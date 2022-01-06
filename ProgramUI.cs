@@ -12,7 +12,7 @@ namespace CarnivalConsoleGame
     {
         int tickets = 100;
         int money = 0;
-        int time = 180;
+        int time = 120;
         int funScore = 0;
 
         private readonly Dictionary<string, CarnivalGames> Games = new Dictionary<string, CarnivalGames>
@@ -72,7 +72,18 @@ namespace CarnivalConsoleGame
                 }
                 else if (command.StartsWith("play") || command.StartsWith("ride"))
                 {
+                    if (currentGame.Time > time)
+                    {
+                        Console.WriteLine("You don't have enough time to do this.  Better find something else.");
+                    }
+                    else if (currentGame.Tickets > tickets)
+                    {
+                        Console.WriteLine("You don't have enough tickets to do this.  Better find something else.");
+                    }
+                    else
+                    {
                     PlayGame(currentGame);
+                    }
                 }
                 else if (command.StartsWith("exit"))
                 {
@@ -105,8 +116,8 @@ namespace CarnivalConsoleGame
 
         private void PlayGame(CarnivalGames currentGame)
         {
-            tickets += currentGame.Tickets;
-            time += currentGame.Time;
+            tickets -= currentGame.Tickets;
+            time -= currentGame.Time;
             funScore += currentGame.FunPoints;
         }
 
@@ -119,7 +130,7 @@ namespace CarnivalConsoleGame
             "From here you can go to BASEBALL TOSS, BASKET TOSS, RING TOSS, BALLOON DART, or EXIT.", //splash
             new List<string> { "baseball toss", "basket toss", "ring toss", "balloon dart" }, //exits
            "Ticket Booth",  //name
-           -5,  //time
+           5,  //time
            0,  //tickets
            0  //fun points
            );
@@ -135,8 +146,8 @@ namespace CarnivalConsoleGame
             "Do you want to RIDE MERRY-GO-ROUND or GO somewhere else?\n", //splash
             new List<string> { "baseball toss", "basket toss" }, //exits
            "Merry-Go-Round",  //name
-           -10,  //time
-           -7,  //tickets
+           10,  //time
+           7,  //tickets
            20  //fun points
            );
 
@@ -151,8 +162,8 @@ namespace CarnivalConsoleGame
             "Do you want to PLAY GAME or GO somewhere else?\n", //splash
             new List<string> { "merry-go-round", "tilt-a-whirl", "ticket booth" }, //exits
            "Baseball Toss",  //name
-           -5,  //time
-           -5,  //tickets
+           5,  //time
+           5,  //tickets
            10  //fun points
            );
         //Coaster
@@ -166,8 +177,8 @@ namespace CarnivalConsoleGame
             "Do you want to RIDE ROLLER COASTER or GO somewhere else?\n", //splash
             new List<string> { "basket toss", "ring toss" }, //exits
            "Roller Coaster",  //name
-           -25,  //time
-           -10,  //tickets
+           25,  //time
+           10,  //tickets
            500  //fun points
            );
         //BasketToss
@@ -181,8 +192,8 @@ namespace CarnivalConsoleGame
             "Do you want to PLAY GAME or GO somewhere else?\n", //splash
             new List<string> { "roller coaster", "merry-go-round", "ticket booth" }, //exits
            "Basket Toss",  //name
-           -5,  //time
-           -5,  //tickets
+           5,  //time
+           5,  //tickets
            15  //fun points
            );
         //FerrisWheel
@@ -196,8 +207,8 @@ namespace CarnivalConsoleGame
             "Do you want to RIDE FERRIS WHEEL or GO somewhere else?\n", //splash
             new List<string> { "balloon dart", "ring toss" }, //exits
            "Ferris Wheel",  //name
-           -15,  //time
-           -12,  //tickets
+           15,  //time
+           12,  //tickets
            20  //fun points
            );
         //RingToss
@@ -211,8 +222,8 @@ namespace CarnivalConsoleGame
             "Do you want to PLAY GAME or GO somewhere else?\n", //splash
             new List<string> { "ferris wheel", "roller coaster", "ticket booth" }, //exits
            "Ring-Toss",  //name
-           -5,  //time
-           -3,  //tickets
+           5,  //time
+           3,  //tickets
            30  //fun points
            );
         //BalloonDart
@@ -226,8 +237,8 @@ namespace CarnivalConsoleGame
             "Do you want to PLAY GAME or GO somewhere else?\n", //splash
             new List<string> { "tilt-a-whirl", "ferris wheel", "ticket booth" }, //exits
            "Ballon-Dart",  //name
-           -1,  //time
-           -3,  //tickets
+           1,  //time
+           3,  //tickets
             50  //fun points
            );
         //TiltAWhirl
@@ -241,8 +252,8 @@ namespace CarnivalConsoleGame
            "Do you want to RIDE TILT-A-WHIRL or GO somewhere else?\n", //splash
             new List<string> { "baseball toss", "balloon dart", "ticket booth" }, //exits
            "Tilt-A-Whirl",  //name
-           -5,  //time
-           -5,  //tickets
+           5,  //time
+           5,  //tickets
            100  //fun points
            );
         
