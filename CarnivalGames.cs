@@ -10,7 +10,19 @@ namespace CarnivalConsoleGame
     {
        public CarnivalGames(){}
 
-        
+       public static readonly Dictionary<string, CarnivalGames> Games = new Dictionary<string, CarnivalGames>
+        {
+            {"merry-go-round", merryGoRound },
+            {"basket toss", basketToss },
+            {"roller coaster", rollerCoaster },
+            {"ring toss", ringToss },
+            {"ferris wheel", ferrisWheel },
+            {"balloon dart", balloonDart },
+            {"tilt-a-whirl", tiltAWhirl },
+            {"baseball toss", baseballToss },
+            {"ticket booth", ticketBooth }
+        };
+
 
         public CarnivalGames(string splash, List<string> exits, string name, int time, int tickets, int funPoints)
         {
@@ -63,7 +75,8 @@ namespace CarnivalConsoleGame
             "This game costs 3 tickets.\n" +
             "This game takes 5 minutes.\n" +
             "This game is worth 2 Fun Points!\n\n" +
-            "From here you can go to MERRY-GO-ROUND, TILT-A-WHIRL, or the TICKET BOOTH.", //splash
+            "From here you can go to MERRY-GO-ROUND, TILT-A-WHIRL, or the TICKET BOOTH.\n" +
+            "Do you want to PLAY GAME or GO somewhere else?", //splash
             new List<string> { "merry-go-round", "tilt-a-whirl", "ticket booth" }, //exits
            "Baseball Toss",  //name
            -5,  //time
